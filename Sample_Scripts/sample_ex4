@@ -1,0 +1,35 @@
+Theta2_grad=Theta2_grad + (delta_3 * (a2))
+    
+    fprintf("Size of delta_2: %s",mat2str(size(delta_2)));
+    
+    fprintf("Size of a1: %s",mat2str(size(a1)));
+    
+    Theta1_grad=Theta1_grad + (delta_2 * (a1))
+
+
+    Theta1_grad= Theta1_grad.*(1/m)
+
+	Theta2_grad= Theta2_grad.*(1/m)
+
+
+	delta_3=(H-Ytemp);
+                              
+    delta_2=(Theta2'*delta_3).*a2 .* (1-a2);
+
+
+     Theta2_grad= Theta2_grad + (delta_3 * a2);
+                
+        delta_2=delta_2(2:end,:);
+                              
+        for b=1:size(delta_2,1)
+                
+            Theta1_grad= Theta1_grad + (delta_2(b,:)' * a1);
+        
+        end
+
+
+         fprintf("Size of delta_2: %s",mat2str(size(delta_2)));
+    
+        fprintf("Size of a1: %s",mat2str(size(a1)));
+        
+        

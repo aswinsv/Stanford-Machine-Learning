@@ -1,0 +1,19 @@
+
+%for i=1:size(g)
+    %g(i)=1/(1+ exp(z(i)));
+
+%end
+
+g=1./(1+exp(-z));
+
+
+
+
+
+H=sigmoid(X);
+
+disp("Hypothesis");
+
+disp(H);
+
+J= 1/m * sum(y .* log(H)- (1.-y) .* log(1-H));
